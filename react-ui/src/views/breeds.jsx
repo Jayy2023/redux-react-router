@@ -3,11 +3,14 @@
 import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 import { selectBreeds } from '../features/breedsSlice';
+import {useDispatch} from '../features/breedsSlice';
+import { selectSelectedBreeds } from '../features/selectedBreedsSlice';
 
 
 const Breeds = () => {
   const [selectedBreeds, setSelectedBreeds] = useState([]);
   const data = useSelector(selectBreeds);
+  const dispatch = useDispatch()
   const applyActiveClass = (breed) => {
     if(selectBreeds.indexOf(breed) > -1) {
       return 'active';
@@ -28,8 +31,10 @@ const Breeds = () => {
   } 
   setSelectedBreeds(_selectedBreeds);
 }
+
+
 const handleSelectedBreeds = ()=> {
-  console.log(selectBreeds);
+  dispatchEvent(selectSelectedBreeds(selectedBreeds));
 }
 
   const breeds = data && data.map(breed => {
