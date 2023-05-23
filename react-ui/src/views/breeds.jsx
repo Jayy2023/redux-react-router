@@ -35,6 +35,7 @@ const Breeds = () => {
 
 const handleSelectedBreeds = ()=> {
   dispatchEvent(selectSelectedBreeds(selectedBreeds));
+  setSelectedBreeds([]);
 }
 
   const breeds = data && data.map(breed => {
