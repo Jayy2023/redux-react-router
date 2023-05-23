@@ -72,3 +72,15 @@ ul {
   background-color: cornflowerblue;
   color: white;
 }
+.breeds-subheader{
+  display: flex;
+}
+.breeds-subheader h1 {
+  margin-right: 0 20px 0 ;
+}
+.breeds-subheader button{
+  border: 1px solid transparent;
+  padding: 0 18px;
+  background-color: azure;
+  cursor: pointer;
+}

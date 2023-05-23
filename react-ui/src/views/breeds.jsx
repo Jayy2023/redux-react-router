@@ -28,6 +28,9 @@ const Breeds = () => {
   } 
   setSelectedBreeds(_selectedBreeds);
 }
+const handleSelectedBreeds = ()=> {
+  console.log(selectBreeds);
+}
 
   const breeds = data && data.map(breed => {
     return( 
@@ -44,11 +47,14 @@ const Breeds = () => {
   
 
   return (
-    <div>
-    <h1>Breeds</h1>
+    <>
+    <div className="breeds-subheader">
+       <h1>Breeds</h1>
+       {selectedBreeds.length && <button onClick='HandleSelectedBreeds'>Add selections to favorite?</button>})
+    </div>
     <ul className="breeds">{breeds}</ul>
 
-    </div>
+    </>
   )
 };
 
