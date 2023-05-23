@@ -8,6 +8,14 @@ import { selectBreeds } from '../features/breedsSlice';
 const Breeds = () => {
   const [selectedBreeds, setSelectedBreeds] = useState([]);
   const data = useSelector(selectBreeds);
+  const applyActiveClass = (breed) => {
+    if(selectBreeds.indexOf(breed) > -1) {
+      return 'active';
+    }
+  }
+
+
+
   const handleClick = e => {
     // eslint-disable-next-line no-unused-vars
     const value = e.target.value.breed;
@@ -22,16 +30,23 @@ const Breeds = () => {
 }
 
   const breeds = data && data.map(breed => {
-    return <li data-breed={breed} key={breed} onClick={handleClick}>{breed}</li>;
+    return( 
+    <li
+    className={selectedBreeds.indexOf(breed)> -1 ? 'active' : ""}
+     data-breed={breed} 
+     key={breed} 
+     onClick={handleClick}
+     >
+      {breed}
+      </li>)
   })
     
   
 
   return (
     <div>
-    {JSON.stringify(selectBreeds)}
     <h1>Breeds</h1>
-    <ul>{breeds}</ul>
+    <ul className="breeds">{breeds}</ul>
 
     </div>
   )
